@@ -26,3 +26,11 @@ strip --strip-all --remove-section=.comment --remove-section=.note kernel.bin
 
 ### Step 5
 upx --best --ultra-brute kernel.bin
+
+
+## BROWSER COMPILATION
+nim c --cpu:i386 --os:any --gc:none --deadCodeElim:on apps+shell_stuff/brsr.nim
+
+strip --strip-all apps+shell_stuff/brsr
+
+upx --best --ultra-brute apps+shell_stuff/brsr
